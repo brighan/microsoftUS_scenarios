@@ -4,14 +4,13 @@ Feature: English Version Windows Web App
     Given Web Application URL "https://www.microsoft.com/en-us"
     When Page has fully loaded
     Then Below menu items are displayed on top of screen and displayed in console
-      | Menu         |
-      | Home         |
-      | Windows 10   |
-      | Computers    |
-      | Apps         |
-      | PC Gaming    |
-      | For Business |
-      | Support      |
+      | Microsoft 365 |
+      | Office        |
+      | Windows       |
+      | Surface       |
+      | Xbox          |
+      | Deals         |
+      | Support       |
 
   Scenario: Search function returns correct items
     Given Web Application URL "https://www.microsoft.com/en-us"

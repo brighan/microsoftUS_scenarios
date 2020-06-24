@@ -2,12 +2,16 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+
+import java.util.List;
 
 
 public class StepDefinitions {
 
     WebDriver driver;
+    List<WebElement> menuContent;
 
     @Given("Web Application URL {string}")
     public void web_Application_URL(String URL) {
@@ -19,10 +23,11 @@ public class StepDefinitions {
     @When("Page has fully loaded")
     public void page_has_fully_loaded() {
         // Write code here that turns the phrase above into concrete actions
+        new WindowsHomePage(driver).pageFullyLoaded();
     }
 
     @Then("Below menu items are displayed on top of screen and displayed in console")
-    public void below_menu_items_are_displayed_on_top_of_screen_and_displayed_in_console(io.cucumber.datatable.DataTable dataTable) {
+    public void below_menu_items_are_displayed_on_top_of_screen_and_displayed_in_console(List<String> dataTable) {
         // Write code here that turns the phrase above into concrete actions
         // For automatic transformation, change DataTable to one of
         // E, List<E>, List<List<E>>, List<Map<K,V>>, Map<K,V> or
@@ -31,8 +36,7 @@ public class StepDefinitions {
         //
         // For other transformations you can register a DataTableType.
 
-        new WindowsHomePage(driver).getInfoFromWebElement();
-
+        new WindowsHomePage(driver).getInfoFromWebElement(dataTable);
     }
 
     @When("Searching for {string}")
