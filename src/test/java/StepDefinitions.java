@@ -6,17 +6,19 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 
 public class StepDefinitions {
+
+    WebDriver driver;
+
     @Given("Web Application URL {string}")
     public void web_Application_URL(String URL) {
         // Write code here that turns the phrase above into concrete actions
-        new WindowsHomePage().visit();
-        throw new io.cucumber.java.PendingException();
+        this.driver = new ChromeDriver();
+        new WindowsHomePage(driver).visit(URL);
     }
 
     @When("Page has fully loaded")
     public void page_has_fully_loaded() {
         // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
     }
 
     @Then("Below menu items are displayed on top of screen and displayed in console")
@@ -28,7 +30,9 @@ public class StepDefinitions {
         // Double, Byte, Short, Long, BigInteger or BigDecimal.
         //
         // For other transformations you can register a DataTableType.
-        throw new io.cucumber.java.PendingException();
+
+        new WindowsHomePage(driver).getInfoFromWebElement();
+
     }
 
     @When("Searching for {string}")
