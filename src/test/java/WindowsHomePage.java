@@ -14,7 +14,9 @@ import java.util.stream.Collectors;
 
 public class WindowsHomePage extends SeleniumBase implements Controller {
 
-
+    WebElement menus = findElement(By.className("js-paddle-items"));
+    By searchIcon = By.id("search");
+    By searchField = By.id("cli_shellHeaderSearchInput");
 
    public WindowsHomePage(WebDriver driver) {
         super(driver);
@@ -23,9 +25,12 @@ public class WindowsHomePage extends SeleniumBase implements Controller {
     public void openMenu() {
 
     }
+    public void openMenu(String text) {
+        click(searchIcon);
+        type(searchField,text);
+    }
 
     public void getInfoFromWebElement(List<String> dataTable) {
-       WebElement menus = findElement(By.className("js-paddle-items"));
         List<WebElement> links = menus.findElements(By.tagName("li"));
         for(int i = 0; i < links.size(); i++){
             System.out.println((links.get(i).getText()));

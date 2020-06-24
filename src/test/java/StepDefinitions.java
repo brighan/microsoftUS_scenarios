@@ -40,9 +40,9 @@ public class StepDefinitions {
     }
 
     @When("Searching for {string}")
-    public void searching_for(String string) {
+    public void searching_for(String text) {
         // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        new WindowsHomePage(driver).openMenu(text);
     }
 
     @Then("Products are listed in the Result list")
