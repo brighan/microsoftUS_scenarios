@@ -46,5 +46,9 @@ public class SeleniumBase {
         driver.findElement(locator).sendKeys(text);
     }
 
+    public void maxScreen(){
+        driver.manage().window().fullscreen();
+    }
+
 
 }

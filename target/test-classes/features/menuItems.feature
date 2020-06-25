@@ -11,6 +11,9 @@ Feature: English Version Windows Web App
       | Xbox          |
       | Deals         |
       | Support       |
+    And Windows menu is selected
+    And Windows 10 dropdown is selected
+    Then Dropdown content is displayed
 
   Scenario: Search function returns correct items
     Given Web Application URL "https://www.microsoft.com/en-us"
@@ -20,5 +23,5 @@ Feature: English Version Windows Web App
 
   Scenario: Cart displays correct Product and price
     Given Web Application URL "https://www.microsoft.com/en-us"
-    When Adding Product to Cart
+    When Adding "Visual Studio" Product to Cart
     Then Total Amount is same than Unit Price * 20

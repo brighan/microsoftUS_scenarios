@@ -1,3 +1,4 @@
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -48,24 +49,44 @@ public class StepDefinitions {
     @Then("Products are listed in the Result list")
     public void products_are_listed_in_the_Result_list() {
         // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        new WindowsHomePage(driver).productsListing();
     }
 
     @Then("Price of first Product in list matches Product details page")
     public void price_of_first_Product_in_list_matches_Product_details_page() {
         // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        new WindowsVisualStudioPage(driver).openMenu();
+
     }
 
-    @When("Adding Product to Cart")
-    public void adding_Product_to_Cart() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
-    }
 
     @Then("Total Amount is same than Unit Price * {int}")
     public void total_Amount_is_same_than_Unit_Price(Integer int1) {
         // Write code here that turns the phrase above into concrete actions
         throw new io.cucumber.java.PendingException();
+    }
+
+    @And("Windows menu is selected")
+    public void windowsMenuIsSelected() {
+        new WindowsHomePage(driver).openMenu();
+    }
+
+    @And("Windows {int} dropdown is selected")
+    public void windowsDropdownIsSelected(int arg0) {
+        new WindowsWindows10Page(driver).openMenu();
+    }
+
+    @Then("Dropdown content is displayed")
+    public void dropdownContentIsDisplayed() {
+        new WindowsWindows10Page(driver).getInfoFromWebElement();
+    }
+
+    @When("Adding {string} Product to Cart")
+    public void addingProductToCart(String text) {
+        new WindowsHomePage(driver).openMenu(text);
+        new WindowsHomePage(driver).productsListing();
+        new WindowsVisualStudioPage(driver).openMenu();
+        new WindowsVisualStudioPage(driver).addCart();
+        new WindowsCart(driver).checkOut();
     }
 }
