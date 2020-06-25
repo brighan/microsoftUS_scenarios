@@ -35,7 +35,8 @@ public class WindowsCart extends SeleniumBase implements Controller{
     @Override
     public void getInfoFromWebElement() {
         type(dropdown,"20");
-        assertEquals("$15,980.00",getText(totalAmount));
+        initWait().until(ExpectedConditions.visibilityOfElementLocated((totalAmount)));
+        assertEquals("$15,980.00", getText(totalAmount));
     }
 
     @Override
