@@ -63,7 +63,7 @@ public class StepDefinitions {
     @Then("Total Amount is same than Unit Price * {int}")
     public void total_Amount_is_same_than_Unit_Price(Integer int1) {
         // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        new WindowsCart(driver).getInfoFromWebElement();
     }
 
     @And("Windows menu is selected")
